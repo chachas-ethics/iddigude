@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Professional Photography Portfolio | Capturing Moments That Matter</title>
+  <meta name="description" content="Professional photographer specializing in weddings, portraits, and lifestyle photography. View portfolio or book a session today." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Custom Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            primaryHover: '#1D4ED8',
+            darkBg: '#0B0F14',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+  .filter-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #9CA3AF;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+  }
+  .filter-btn:hover,
+  .filter-btn.active {
+    color: white;
+    border-color: #2563EB;
+  }
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .gallery-img:hover {
+    transform: scale(1.03);
+  }
+
+  .album-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  aspect-ratio: 4 / 5; /* consistent height */
+}
+
+.album-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crops instead of stretching */
+  display: block;
+}
+
+.album-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.90), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  color: white;
+}
+
+ body {
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+</style>
+
+</head>
+
+<body class="bg-darkBg text-white font-sans">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur border-b border-white/10">
+    <nav class="max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="text-xl font-bold tracking-wide">
+        <span class="text-blue-500">IDDI</span>GUDE
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <li><a href="#portfolio" class="hover:text-white transition">Home</a></li>
+        <li><a href="#portfolio" class="hover:text-white transition">Portfolio</a></li>
+        <li><a href="#services" class="hover:text-white transition">Services</a></li>
+        <li><a href="#about" class="hover:text-white transition">About</a></li>
+        <li><a href="#contact" class="text-primary hover:text-primaryHover transition">Book Now</a></li>
+      </ul>
+
+     <!-- Mobile Menu Button -->
+<button id="menu-btn" class="md:hidden text-white focus:outline-none">
+  <!-- Hamburger -->
+  <svg id="icon-hamburger" xmlns="http://www.w3.org/2000/svg"
+    class="h-7 w-7 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+
+  <!-- X Icon -->
+  <svg id="icon-close" xmlns="http://www.w3.org/2000/svg"
+    class="h-7 w-7 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M6 18L18 6M6 6l12 12" />
+  </svg>
+</button>
+
+    </nav>
+
+    <!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-black/95 absolute top-full left-0 w-full">
+  <ul class="flex flex-col items-center gap-6  py-8 text-white text-sm font-medium">
+     <li><a href="#portfolio" class="mobile-link">Home</a></li>
+    <li><a href="#portfolio" class="mobile-link">Portfolio</a></li>
+    <li><a href="#services" class="mobile-link">Services</a></li>
+    <li><a href="#about" class="mobile-link">About</a></li>
+    <li><a href="#contact" class="mobile-link text-primary">Book Now</a></li>
+  </ul>
+</div>
+
+
+  </header>
+
+  <!-- HERO SECTION -->
+  <section
+    class="relative min-h-screen flex items-center justify-center px-6 pt-24"
+    aria-label="Hero section"
+  >
+    <!-- Background Image -->
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('thumbnails/capture.jpg');"
+    ></div>
+
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/80"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-4xl text-center">
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+        Capturing <span class="text-blue-500">Moments</span><br class="hidden md:block" />
+        You’ll Feel Forever
+      </h1>
+
+      <p class="mt-6 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+        Timeless photography for all occasions.
+      </p>
+
+      <!-- CTAs -->
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="#portfolio"
+          class="bg-blue-500 hover:bg-primaryHover text-white px-8 py-4 rounded-xl font-semibold transition"
+        >
+          View Portfolio
+        </a>
+
+        <a
+          href="#contact"
+          class="border border-blue-500/40 hover:border-blue-500 text-blue-500 px-8 py-4 rounded-xl font-semibold transition"
+        >
+          Book a Session
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="py-24 px-6 bg-darkBg bg-gradient-to-r from-slate-950 to-black" aria-label="Photography portfolio">
+
+<div class="absolute inset-0 bg-black/1000"></div>
+
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl md:text-4xl font-bold">
+        Photo <span class="text-primary">Albums</span>
+      </h2>
+      <p class="mt-4 text-white">
+        Explore complete visual stories.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+      <a href="sportsalbum.html" class="album-card">
+        <img src="thumbnails/sports.jpg">
+        <div class="album-overlay">
+          <h3 style="font-weight: bold;
+          font-size: 1.5rem;">Sports</h3>
+          <span>View Album →</span>
+        </div>
+      </a>
+
+      <a href="eventsalbum.html" class="album-card">
+        <img  src="thumbnails/corporate.avif">
+        <div class="album-overlay">
+          <h3 style="font-weight: bold;
+          font-size: 1.5rem;">Events</h3>
+          <span>View Album →</span>
+        </div>
+      </a>
+
+      <a href="adventurealbum.html" class="album-card">
+        <img src="thumbnails/tours.jpeg">
+        <div class="album-overlay">
+          <h3 style="font-weight: bold;
+          font-size: 1.5rem;">Adventure & Tourism</h3>
+          <span>View Album →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<div id="lightbox" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50">
+  <img id="lightbox-img" src="" alt="Fullscreen preview" class="max-w-full max-h-full rounded-xl">
+</div>
+
+<!-- SERVICES SECTION -->
+<section id="services" class="py-24 px-6 bg-darkBg bg-gradient-to-r from-slate-950 to-black" aria-label="Photography services">
+  
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold">
+        What I <span class="text-primary">Shoot</span>
+      </h2>
+      <p class="mt-4 text-white max-w-xl mx-auto">
+        Focused photography services designed for real people, real moments, and real brands.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- Service Card -->
+      <div class="bg-primary border border-white/10 rounded-2xl p-8 hover:border-primary/40 transition">
+        <h3 class="text-xl font-semibold mb-3">Weddings</h3>
+        <p class="text-white text-sm leading-relaxed">
+          Emotional, story-driven coverage for couples who want their day captured naturally.
+        </p>
+        <p class="mt-4 text-primary text-sm font-medium">
+          For couples & wedding planners
+        </p>
+      </div>
+
+      <!-- Service Card -->
+      <div class="bg-primary border border-white/10 rounded-2xl p-8 hover:border-primary/40 transition">
+        <h3 class="text-xl font-semibold mb-3">Portraits</h3>
+        <p class="text-white text-sm leading-relaxed">
+          Clean, confident portraits that reflect personality, style, and purpose.
+        </p>
+        <p class="mt-4 text-primary text-sm font-medium">
+          For individuals, creatives & professionals
+        </p>
+      </div>
+
+      <!-- Service Card -->
+      <div class="bg-primary border border-white/10 rounded-2xl p-8 hover:border-primary/40 transition">
+        <h3 class="text-xl font-semibold mb-3">Events</h3>
+        <p class="text-white text-sm leading-relaxed">
+          Reliable coverage that captures key moments without disrupting the experience.
+        </p>
+        <p class="mt-4 text-primary text-sm font-medium">
+          For corporate & private events
+        </p>
+      </div>
+
+      <!-- Service Card -->
+      <div class="bg-primary border border-white/10 rounded-2xl p-8 hover:border-primary/40 transition">
+        <h3 class="text-xl font-semibold mb-3">Commercial</h3>
+        <p class="text-white text-sm leading-relaxed">
+          High-quality visuals crafted to elevate brands, products, and campaigns.
+        </p>
+        <p class="mt-4 text-primary text-sm font-medium">
+          For brands, businesses & agencies
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="py-24 px-6 bg-darkBg bg-gradient-to-r from-blue-950 to-slate-950" aria-label="About the photographer">
+  
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+
+    <!-- Photographer Image -->
+    <div class="relative">
+      <div class="absolute -inset-4 bg-primary/20 rounded-3xl blur-2xl"></div>
+      <img
+        src="thumbnails/iddihimself.jpg"
+        alt="Professional photographer portrait"
+        loading="lazy"
+        class="relative w-full max-w-md mx-auto rounded-3xl object-cover"
+      />
+    </div>
+
+    <!-- About Content -->
+    <div>
+      
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        Behind the <span class="text-primary">Lens</span>
+      </h2>
+
+      <p class="text-gray-300 leading-relaxed mb-6">
+        I’m a professional photographer driven by one thing — telling real stories through honest,
+        intentional imagery. What started as a passion quickly became a career built on trust,
+        consistency, and emotion.
+      </p>
+
+      <p class="text-gray-400 leading-relaxed mb-8">
+        With years of experience shooting weddings, portraits, events, and commercial projects,
+        I focus on capturing moments as they naturally unfold — not forced, not staged, just real.
+      </p>
+
+      <!-- Style Philosophy -->
+      <div class="bg-blue-800 border border-white/20 rounded-2xl p-6">
+        <h3 class="text-xl font-bold mb-4">My Style Philosophy</h3>
+        <ul class="space-y-3 text-white text-sm">
+          <li>
+            <span class="text-white font-bold text-lg">Cinematic:</span>
+            Dramatic lighting, depth, and mood that feels timeless.
+          </li>
+          <li>
+            <span class="text-white font-bold text-lg">Documentary:</span>
+            Real moments captured as they happen, without interruption.
+          </li>
+          <li>
+            <span class="text-white font-bold text-lg">Editorial:</span>
+            Clean, intentional compositions with a refined finish.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SOCIAL PROOF SECTION -->
+<section id="testimonials" class="py-24 px-6 bg-gradient-to-r from-blue-950 to-slate-950" aria-label="Client testimonials and social proof">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold">
+        Trusted by <span class="text-primary">Clients</span>
+      </h2>
+      <p class="mt-4 text-gray-400 max-w-xl mx-auto">
+        Real words from people and brands I’ve worked with over the years.
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16 text-center">
+      <div>
+        <p class="text-4xl font-bold text-primary">6+</p>
+        <p class="text-gray-400 text-sm mt-2">Years Experience</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-primary">250+</p>
+        <p class="text-gray-400 text-sm mt-2">Sessions Completed</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-primary">180+</p>
+        <p class="text-gray-400 text-sm mt-2">Happy Clients</p>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+
+      <!-- Testimonial Card -->
+      <div class="bg-blue-800 border border-white/10 rounded-2xl p-8">
+        <p class="text-white text-sm leading-relaxed mb-6">
+          “From the first meeting to the final delivery, the experience was effortless.
+          The photos captured emotions we didn’t even realize were happening.”
+        </p>
+        <p class="font-semibold">Sarah & Michael</p>
+        <p class="text-white text-sm">Wedding Clients</p>
+      </div>
+
+      <div class="bg-blue-800 border border-white/10 rounded-2xl p-8">
+        <p class="text-white text-sm leading-relaxed mb-6">
+          “Professional, creative, and reliable. The images elevated our brand instantly.
+          We’ll definitely work together again.”
+        </p>
+        <p class="font-semibold">Amina K.</p>
+        <p class="text-white text-sm">Brand Manager</p>
+      </div>
+
+      <div class="bg-blue-800 border border-white/10 rounded-2xl p-8">
+        <p class="text-white text-sm leading-relaxed mb-6">
+          “He blended into the event perfectly and still managed to capture every key moment.
+          The results were beyond expectations.”
+        </p>
+        <p class="font-semibold">James O.</p>
+        <p class="text-white text-sm">Corporate Event</p>
+      </div>
+
+    </div>
+
+    <!-- Brand Logos -->
+    <div class="text-center">
+      <p class="text-white text-sm mb-6 uppercase tracking-wide">
+        Worked With
+      </p>
+      <div class="flex flex-wrap justify-center items-center gap-10 opacity-70">
+        <img style="width: 100px;
+        height: 90px;" src="thumbnails/MY LOG.jpg" alt="Brand One logo" loading="lazy">
+        <img style="width: 100px;
+        height: 90px;" src="thumbnails/avilogo.jpg" alt="Brand Two logo" loading="lazy">
+        <img style="width: 100px;
+        height: 90px;" src="thumbnails/gsm logo.png" alt="Brand Three logo" loading="lazy">
+        <img style="width: 100px;
+        height: 90px;" src="thumbnails/andalogo.jpg" alt="Brand Four logo" loading="lazy">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRICING / PACKAGES SECTION -->
+<section id="pricing" class="py-24 px-6 bg-gradient-to-r from-blue-950 to-slate-950" aria-label="Photography pricing and packages">
+  <div class="max-w-7xl mx-auto text-center">
+
+    <!-- Section Header -->
+    <div class="mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold">
+        Pricing & <span class="text-primary">Packages</span>
+      </h2>
+      <p class="mt-4 text-white max-w-xl mx-auto">
+        Transparent packages designed to suit different needs. Not seeing your fit? Request a custom quote.
+      </p>
+    </div>
+
+    <!-- Packages Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Starter Package -->
+      <div class="bg-blue-800 border border-white/90 rounded-2xl p-8 hover:border-primary/40 transition flex flex-col">
+        <h3 class="text-xl font-semibold mb-4">Starter</h3>
+        <p class="text-white mb-6">
+          Perfect for small events, portraits, or intimate sessions.
+        </p>
+        <p class="text-white text-2xl font-bold mb-6">$200+</p>
+        <ul class="text-white text-sm mb-6 space-y-2">
+          <li>1-hour session</li>
+          <li>10 edited photos</li>
+          <li>Digital delivery</li>
+        </ul>
+        <a href="#contact" class="mt-auto bg-primary hover:bg-primaryHover text-white px-6 py-3 rounded-xl font-semibold transition">
+          Book This Package
+        </a>
+      </div>
+
+      <!-- Standard Package -->
+      <div class="bg-blue-800 border border-white/90 rounded-2xl p-8 hover:border-primary/40 transition flex flex-col">
+        <h3 class="text-xl font-semibold mb-4">Standard</h3>
+        <p class="text-white mb-6">
+          Ideal for weddings, mid-size events, and comprehensive portrait sessions.
+        </p>
+        <p class="text-white text-2xl font-bold mb-6">$500+</p>
+        <ul class="text-white text-sm mb-6 space-y-2">
+          <li>3-hour session</li>
+          <li>30 edited photos</li>
+          <li>Digital & print-ready delivery</li>
+        </ul>
+        <a href="#contact" class="mt-auto bg-primary hover:bg-primaryHover text-white px-6 py-3 rounded-xl font-semibold transition">
+          Book This Package
+        </a>
+      </div>
+
+      <!-- Premium / Custom Package -->
+      <div class="bg-blue-800 border border-white/90 rounded-2xl p-8 hover:border-primary/40 transition flex flex-col">
+        <h3 class="text-xl font-semibold mb-4">Premium / Custom</h3>
+        <p class="text-white mb-6">
+          Fully tailored experience for large weddings, commercial campaigns, or bespoke projects.
+        </p>
+        <p class="text-white text-2xl font-bold mb-6">Custom Quote</p>
+        <ul class="text-white text-sm mb-6 space-y-2">
+          <li>Flexible hours & locations</li>
+          <li>Unlimited edited images</li>
+          <li>Priority delivery</li>
+        </ul>
+        <a href="#contact" class="mt-auto bg-primary hover:bg-primaryHover text-white px-6 py-3 rounded-xl font-semibold transition">
+          Request a Quote
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING / CONTACT SECTION -->
+<section id="contact" class="py-24 px-6 bg-gradient-to-r from-blue-950 to-slate-950" aria-label="Booking and contact">
+  <div class="max-w-7xl mx-auto text-center">
+
+    <!-- Section Header -->
+    <div class="mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold">
+        Let's <span class="text-primary">Connect</span>
+      </h2>
+      <p class="mt-4 text-white max-w-xl mx-auto">
+        Ready to capture your moments? Fill out the form or contact me directly via WhatsApp or phone.
+      </p>
+    </div>
+
+    <!-- Contact Card -->
+    <div class="bg-blue-800 border border-white/10 rounded-3xl max-w-4xl mx-auto p-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+        <!-- Contact Info -->
+        <div class="flex flex-col justify-between">
+          <div class="mb-8 text-left">
+            <h3 class="text-xl font-semibold mb-4">Get in touch directly</h3>
+            <p class="text-white text-lg font-semibold mb-2">
+              WhatsApp: <a href="https://wa.me/255788296274" class="text-white hover:underline">+255 788 296 274</a>
+            </p>
+            <p class="text-white text-lg font-semibold mb-2">
+              Phone: <a href="tel:+255788296274" class="text-white hover:underline">+255 788 296 274</a>
+            </p>
+            <p class="text-white text-lg font-semibold mb-2">
+              Email: <a href="mailto:photographer@example.com" class="text-white hover:underline">photographer@example.com</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Booking Form -->
+        <form action="#" method="POST" class="flex flex-col gap-4">
+          <input type="text" name="name" placeholder="Your Name" required
+                 class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-800 placeholder-blue-800 focus:outline-none focus:ring-2 focus:ring-primary" />
+          <input type="date" name="date" required
+                 class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-800 placeholder-blue-800 focus:outline-none focus:ring-2 focus:ring-primary" />
+          <select name="service" required
+                 class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary">
+            <option value="">Select a Service</option>
+            <option value="wedding">Wedding</option>
+            <option value="portrait">Portrait</option>
+            <option value="event">Event</option>
+            <option value="commercial">Commercial</option>
+          </select>
+          <textarea name="message" rows="4" placeholder="Your Message" required
+                    class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-800 placeholder-blue-800 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+          <button type="submit"
+                  class="bg-primary hover:bg-primaryHover text-white rounded-xl py-3 font-semibold transition">
+            Send Message
+          </button>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section id="faq" class="py-24 px-6 bg-gradient-to-r from-blue-950 to-slate-950" aria-label="Frequently asked questions">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold">
+        Frequently <span class="text-primary">Asked Questions</span>
+      </h2>
+      <p class="mt-4 text-white max-w-xl mx-auto">
+        Answers to common questions about sessions, delivery, and payment.
+      </p>
+    </div>
+
+    <!-- FAQ Items -->
+    <div class="space-y-6 max-w-3xl mx-auto">
+
+      <!-- FAQ Item -->
+      <div class="bg-blue-800 border border-white/10 rounded-2xl p-6">
+        <h3 class="text-lg font-semibold text-white cursor-pointer faq-toggle">
+          What is your typical turnaround time for edited photos?
+        </h3>
+        <p class="mt-2 text-gray-300 hidden faq-answer">
+          For standard sessions, edited photos are delivered within 7–10 business days. Weddings or large events may take 2–3 weeks.
+        </p>
+      </div>
+
+      <!-- FAQ Item -->
+      <div class="bg-blue-800 border border-white/10 rounded-2xl p-6">
+        <h3 class="text-lg font-semibold text-white cursor-pointer faq-toggle">
+          In what format are the images delivered?
+        </h3>
+        <p class="mt-2 text-gray-300 hidden faq-answer">
+          Images are delivered digitally via secure download links in high-resolution JPEG format. Print-ready files are included.
+        </p>
+      </div>
+
+      <!-- FAQ Item -->
+      <div class="bg-blue-800 border border-white/10 rounded-2xl p-6">
+        <h3 class="text-lg font-semibold text-white cursor-pointer faq-toggle">
+          How do I book a session?
+        </h3>
+        <p class="mt-2 text-gray-300 hidden faq-answer">
+          Simply fill out the booking form, select your service, and we’ll confirm availability. A 30% deposit secures your date.
+        </p>
+      </div>
+
+      <!-- FAQ Item -->
+      <div class="bg-blue-800 border border-white/10 rounded-2xl p-6">
+        <h3 class="text-lg font-semibold text-white cursor-pointer faq-toggle">
+          What are your payment terms?
+        </h3>
+        <p class="mt-2 text-gray-300 hidden faq-answer">
+          A 30% deposit is required to secure your booking. The remaining balance is due upon delivery of final images.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CALL-TO-ACTION STRIP -->
+<section id="cta" class="py-20 px-6 bg-primary text-white text-center mt-8 rounded-3xl mx-6 md:mx-16 bg-gradient-to-r from-blue-950 to-slate-950">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+      Ready to <span class="font-extrabold text-blue-500">Capture Your Moments</span>?
+    </h2>
+    <p class="text-gray-100 mb-8">
+      Don’t wait—let’s create timeless memories together.  
+      One session is all it takes.
+    </p>
+    <a href="#contact" class="bg-blue-700 text-white hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold text-lg transition">
+      Book Your Session
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-darkBg text-gray-400 py-12 px-6 mt-6 border-t border-gray-800 bg-gradient-to-r from-blue-950 to-slate-950" aria-label="Footer">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- Contact Info -->
+    <div>
+      <h3 class="text-white text-lg font-bold mb-4">Contact</h3>
+      <p class="text-white mb-2">
+        <span class="font-bold text-lg">Phone:</span> <a href="tel:+255788296274" class="text-white hover:underline">+255 788 296 274</a>
+      </p>
+      <p class="text-white text-lg mb-2">
+        <span class="font-bold text-lg">WhatsApp:</span> <a href="https://wa.me/255788296274" class="text-white hover:underline">+255 788 296 274</a>
+      </p>
+      <p class="text-white text-lg mb-2">
+        <span class="font-bold text-lg">Email:</span> <a href="mailto:photographer@example.com" class="text-white hover:underline">photographer@example.com</a>
+      </p>
+      <p class="text-white text-lg">
+        Location: Dar es Salaam, Tanzania
+      </p>
+    </div>
+
+    <!-- Navigation / Quick Links -->
+    <div>
+      <h3 class="text-white text-lg font-bold mb-4">Quick Links</h3>
+      <ul class="space-y-2 text-white text-sm">
+        <li><a href="#portfolio" class="hover:text-primary">Portfolio</a></li>
+        <li><a href="#services" class="hover:text-primary">Services</a></li>
+        <li><a href="#about" class="hover:text-primary">About</a></li>
+        <li><a href="#testimonials" class="hover:text-primary">Testimonials</a></li>
+        <li><a href="#contact" class="hover:text-primary">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Social & Branding -->
+    <div class="text-center md:text-left">
+      <h3 class="text-white text-lg font-bold mb-4">See My Socials</h3>
+      <div class="flex justify-center md:justify-start gap-4 mb-6">
+        <a href="https://instagram.com" target="_blank" class="hover:text-primary" aria-label="Instagram">
+  <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+    <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 7.3A2.8 2.8 0 1 1 14.8 12 2.8 2.8 0 0 1 12 14.8zM17.3 6.2a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/>
+  </svg>
+</a>
+
+
+        <a href="mailto:info@synlotech.com" class="hover:text-primary" aria-label="Email">
+  <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+    <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+  </svg>
+</a>
+
+<a href="https://www.tiktok.com" target="_blank" class="hover:text-primary" aria-label="TikTok">
+  <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+    <path d="M21 8.3c-1.7 0-3.3-.5-4.7-1.4v7.4a6.3 6.3 0 1 1-6.3-6.3c.3 0 .6 0 .9.1v3.2a3.1 3.1 0 1 0 2.2 3V2h3.1c.3 1.8 1.7 3.3 3.5 3.6v2.7z"/>
+  </svg>
+</a>
+
+
+        <!-- Add more social icons here -->
+      </div>
+      <p class="text-gray-500 text-sm">&copy; 2026 Photographer Name. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+
+<script>
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  // Filtering
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      galleryItems.forEach(item => {
+        item.style.display =
+          filter === 'all' || item.classList.contains(filter)
+            ? 'block'
+            : 'none';
+      });
+    });
+  });
+
+  // Lightbox
+  document.querySelectorAll('.gallery-img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    lightboxImg.src = '';
+  });
+
+  const faqToggles = document.querySelectorAll('.faq-toggle');
+  faqToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const answer = toggle.nextElementSibling;
+      answer.classList.toggle('hidden');
+    });
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+ const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const hamburgerIcon = document.getElementById("icon-hamburger");
+  const closeIcon = document.getElementById("icon-close");
+  const mobileLinks = document.querySelectorAll(".mobile-link");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    hamburgerIcon.classList.toggle("hidden");
+    closeIcon.classList.toggle("hidden");
+  });
+ 
+  mobileLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+      closeIcon.classList.add("hidden");
+      hamburgerIcon.classList.remove("hidden");
+    });
+  });
+  
+
+</script>
+</body>
+</html>
