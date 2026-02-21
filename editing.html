@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Editing Tricks for Stunning Photos | Photography Insights</title>
+
+  <meta name="description" content="Discover professional photo editing tricks that transform ordinary images into stunning visuals. Learn color grading, lighting adjustments, and finishing techniques." />
+  <meta name="keywords" content="Photo Editing Tips, Photography Editing, Lightroom Tricks, Stunning Photos, Professional Photographer" />
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Custom Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            primaryHover: '#1D4ED8',
+            darkBg: '#0B0F14',
+          }
+        }
+      }
+    }
+  </script>
+
+</head>
+
+<body style="font-family: inter;" class="bg-gradient-to-r from-blue-950 to-slate-950 text-white font-sans">
+
+     <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur border-b border-white/10">
+    <nav class="max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="homepage.html#home" class="text-xl font-bold tracking-wide">
+        <span class="text-blue-500">IDDI</span>GUDE
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <li><a href="homepage.html#home" class="hover:text-primary transition">Home</a></li>
+        <li><a href="homepage.html#portfolio" class="hover:text-primary transition">Portfolio</a></li>
+        <li><a href="homepage.html#services" class="hover:text-primary transition">Services</a></li>
+        <li><a href="homepage.html#about" class="hover:text-primary transition">About</a></li>
+        <li><a href="homepage.html#contact" class="text-primary hover:text-white Hover transition">Book Now</a></li>
+      </ul>
+
+     <!-- Mobile Menu Button -->
+<button id="menu-btn" class="md:hidden text-white focus:outline-none">
+  <!-- Hamburger -->
+  <svg id="icon-hamburger" xmlns="http://www.w3.org/2000/svg"
+    class="h-7 w-7 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+
+  <!-- X Icon -->
+  <svg id="icon-close" xmlns="http://www.w3.org/2000/svg"
+    class="h-7 w-7 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M6 18L18 6M6 6l12 12" />
+  </svg>
+</button>
+
+    </nav>
+
+   <!-- Mobile Menu -->
+<div id="mobile-menu" 
+     class="overflow-hidden max-h-0 transition-all duration-300 ease-in-out bg-black/95 absolute top-full left-0 w-full z-50">
+  <ul class="flex flex-col items-center gap-6 py-4 text-white text-sm font-medium">
+     <li><a href="homepage.html#home" class="mobile-link hover:text-primary">Home</a></li>
+    <li><a href="homepage.html#portfolio" class="mobile-link hover:text-primary">Portfolio</a></li>
+    <li><a href="homepage.html#services" class="mobile-link hover:text-primary">Services</a></li>
+    <li><a href="homepage.html#about" class="mobile-link hover:text-primary">About</a></li>
+    <li><a href="homepage.html#contact" class="mobile-link text-primary hover:text-white">Book Now</a></li>
+  </ul>
+</div>
+
+
+  </header>
+
+  <!-- HERO -->
+  <section class="py-24 px-6 mt-12 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        Editing Tricks for <span class="text-primary">Stunning Photos</span>
+      </h1>
+
+      <p class="text-gray-400 text-lg mb-8">
+        Great photos aren’t just captured — they’re crafted.  
+        Here’s how professional editing elevates every image.
+      </p>
+
+      <a href="#contact" class="bg-primary hover:bg-blue-600 px-8 py-3 rounded-xl font-semibold transition">
+        Book a Session
+      </a>
+    </div>
+  </section>
+
+  <!-- FEATURE IMAGE -->
+  <section class="px-6 mb-20">
+    <div class="max-w-6xl mx-auto">
+      <img src="thumbnails/before after.jpg" alt="Before and After Photo Editing"
+           class="w-full h-full object-cover rounded-3xl shadow-lg">
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <main class="max-w-5xl mx-auto px-6 pb-24">
+
+    <div class="space-y-12 text-gray-300 leading-relaxed">
+
+      <div>
+        <h2 class="text-2xl font-semibold text-white mb-3">1. Perfect the Exposure First</h2>
+        <p>
+          Before touching colors or effects, balance brightness and contrast.
+          Exposure corrections create a clean foundation for all other edits.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold text-white mb-3">2. Color Grading Creates Mood</h2>
+        <p>
+          Colors influence emotion. Warm tones add intimacy, cooler tones add drama.
+          Subtle color grading defines the visual identity of a photo.
+        </p>
+      </div>
+
+      <!-- IMAGE GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <img src="thumbnails/color grading.jpg" alt="Professional color grading example"
+             class="rounded-2xl shadow-md object-cover">
+        <img src="thumbnails/retouching.jpg" alt="Portrait retouching example"
+             class="rounded-2xl shadow-md object-cover">
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold text-white mb-3">3. Retouch Without Overdoing It</h2>
+        <p>
+          Retouching should enhance, not erase reality.
+          Clean skin, remove distractions, but keep natural textures intact.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold text-white mb-3">4. Sharpening & Clarity for Impact</h2>
+        <p>
+          Controlled sharpening adds depth and detail.
+          Too much creates harshness — precision is key.
+        </p>
+      </div>
+
+      <!-- WIDE IMAGE -->
+      <div>
+        <img src="thumbnails/high end.jpg" alt="High-end edited photography"
+             class="w-full h-full object-cover rounded-2xl shadow-lg">
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold text-white mb-3">5. Consistency Builds a Signature Look</h2>
+        <p>
+          A cohesive editing style strengthens your brand.
+          Consistent tones and contrast make your work instantly recognizable.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <section class="mt-20 bg-blue-900 rounded-3xl p-10 text-center shadow-lg">
+      <h2 class="text-3xl font-bold mb-4">Want Photos That Truly Stand Out?</h2>
+      <p class="text-gray-400 mb-6">
+        Professional editing transforms good images into unforgettable visuals.
+      </p>
+
+      <a href="#contact" class="bg-primary hover:bg-blue-600 px-8 py-3 rounded-xl font-semibold transition">
+        Let’s Work Together
+      </a>
+    </section>
+
+  </main>
+
+  <!-- CONTACT -->
+   <section id="contact" class="py-24 px-6 bg-gradient-to-r from-blue-950 to-slate-950 text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Book Your Session</h2>
+      <p class="text-gray-400 mb-10">Fill out the form below or contact me directly via WhatsApp or phone.</p>
+      <form id="bookingForm" class="flex flex-col gap-4">
+        <input type="text" name="name" placeholder="Your Name" required class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-900 placeholder-blue-900 focus:outline-none focus:ring-2 focus:ring-primary" />
+        <input type="date" name="date" required class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary" />
+        <select name="service" required class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary">
+          <option value="">Select a Service</option>
+          <option value="wedding">Wedding</option>
+          <option value="portrait">Portrait</option>
+          <option value="event">Event</option>
+          <option value="commercial">Commercial</option>
+        </select>
+        <textarea name="message" rows="4" placeholder="Your Message" required class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-900 placeholder-blue-900 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+        <button type="submit" class="bg-primary hover:bg-blue-600 text-white rounded-xl py-3 font-semibold transition">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+   <footer class="bg-darkBg text-gray-400 px-6 mt-6 border-t border-gray-800 bg-gradient-to-r from-blue-950 to-slate-950" aria-label="Footer">
+
+    <!-- MAIN FOOTER CONTENT -->
+    <div class="max-w-7xl mx-auto py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-blue-600 text-xl font-bold mb-4">Contact</h3>
+
+        <p class="text-white mb-2">
+          <span class="font-bold">Phone:</span>
+        <a href="tel:+255788296274" class="hover:underline text-sm"> +255 788 296 274</a>
+        </p>
+
+        <p class="text-white mb-2">
+          <span class="font-bold">WhatsApp:</span>
+          <a href="https://wa.me/255788296274" class="hover:underline text-sm"> +255 788 296 274</a>
+        </p>
+
+        <p class="text-white mb-2">
+          <span class="font-bold">Email:</span>
+          <a href="mailto:photographer@example.com" class="hover:underline text-sm"> photographer@example.com</a>
+        </p>
+
+        <p class="text-white mb-2">
+          <span class="font-bold">Location:</span>
+          <span class="text-sm"> Dar es Salaam, Tanzania</span>
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-blue-600 text-xl font-bold mb-4">Quick Links</h3>
+        <ul class="space-y-2 text-white text-sm">
+          <li><a href="homepage.html#portfolio" class="hover:text-blue-600">Portfolio</a></li>
+          <li><a href="homepage.html#services" class="hover:text-blue-600">Services</a></li>
+          <li><a href="homepage.html#about" class="hover:text-blue-600">About</a></li>
+          <li><a href="homepage.html#testimonials" class="hover:text-blue-600">Testimonials</a></li>
+          <li><a href="homepage.html#contact" class="hover:text-blue-600">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div>
+        <h3 class="text-blue-600 text-xl font-bold mb-4">Visit My Socials</h3>
+
+        <div class="flex gap-4">
+          <!-- Instagram -->
+          <a href="https://instagram.com" target="_blank" class="hover:text-primary" aria-label="Instagram">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 7.3A2.8 2.8 0 1 1 14.8 12 2.8 2.8 0 0 1 12 14.8zM17.3 6.2a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/>
+            </svg>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:info@synlotech.com" class="hover:text-primary" aria-label="Email">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </a>
+
+          <!-- TikTok -->
+          <a href="https://www.tiktok.com" target="_blank" class="hover:text-primary" aria-label="TikTok">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M21 8.3c-1.7 0-3.3-.5-4.7-1.4v7.4a6.3 6.3 0 1 1-6.3-6.3c.3 0 .6 0 .9.1v3.2a3.1 3.1 0 1 0 2.2 3V2h3.1c.3 1.8 1.7 3.3 3.5 3.6v2.7z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT BAR -->
+    <div class="border-t border-gray-800 py-6 text-center text-sm text-gray-500">
+      &copy; 2026 IDDI GUDE. All Rights Reserved.<br><br>
+      Designed And Developed By 
+      <a class="text-white hover:text-primary" href="https://chachas-ethics.github.io/Synlotech/" target="_blank">
+        SYNLOTECH TECHNOLOGIES
+      </a>
+    </div>
+
+  </footer>
+
+
+   <script>
+    const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+const hamburgerIcon = document.getElementById("icon-hamburger");
+const closeIcon = document.getElementById("icon-close");
+const mobileLinks = document.querySelectorAll(".mobile-link");
+
+menuBtn.addEventListener("click", () => {
+  if (mobileMenu.classList.contains("max-h-0")) {
+    mobileMenu.classList.remove("max-h-0");
+    mobileMenu.classList.add("max-h-96"); // adjust if menu is taller
+  } else {
+    mobileMenu.classList.add("max-h-0");
+    mobileMenu.classList.remove("max-h-96");
+  }
+
+  hamburgerIcon.classList.toggle("hidden");
+  closeIcon.classList.toggle("hidden");
+});
+
+mobileLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.add("max-h-0");
+    mobileMenu.classList.remove("max-h-96");
+
+    closeIcon.classList.add("hidden");
+    hamburgerIcon.classList.remove("hidden");
+  });
+});
+
+// Reset mobile dropdown when switching to larger screens
+function resetMenuOnResize() {
+  if (window.innerWidth >= 768) { // md breakpoint
+    mobileMenu.classList.add("max-h-0");
+    mobileMenu.classList.remove("max-h-96");
+
+    closeIcon.classList.add("hidden");
+    hamburgerIcon.classList.remove("hidden");
+  }
+}
+
+// Listen to window resize
+window.addEventListener("resize", resetMenuOnResize);
+  </script>
+
+</body>
+</html>
