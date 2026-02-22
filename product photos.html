@@ -37,6 +37,21 @@
   </script>
 
   <style>
+
+    body { background: linear-gradient(to right, #020617, #0f172a); }
+
+     body {
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+
      body {
     opacity: 0;
     animation: fadeIn 2s ease-out forwards;
@@ -51,6 +66,8 @@
   
   </style>
 </head>
+
+<body style="font-family: inter;" class="bg-darkBg text-white">
 
  <!-- NAVBAR -->
    <header class="fixed top-0 left-0 w-full z-50 bg-black backdrop-blur border-b border-white/10">
