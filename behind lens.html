@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -50,7 +50,7 @@
 <body style="font-family: inter;" class="bg-gradient-to-r from-blue-950 to-slate-950 text-white font-sans">
 
     <!-- NAVBAR -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur border-b border-white/10">
+   <header class="fixed top-0 left-0 w-full z-50 bg-black backdrop-blur border-b border-white/10">
     <nav class="max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
       
       <!-- Logo -->
@@ -64,7 +64,9 @@
         <li><a href="homepage.html#portfolio" class="hover:text-primary transition">Portfolio</a></li>
         <li><a href="homepage.html#services" class="hover:text-primary transition">Services</a></li>
         <li><a href="homepage.html#about" class="hover:text-primary transition">About</a></li>
+        <li><a href="insights.html" class=" hover:text- Hover transition">Insights</a></li>
         <li><a href="homepage.html#contact" class="text-primary hover:text-white Hover transition">Book Now</a></li>
+        
       </ul>
 
      <!-- Mobile Menu Button -->
@@ -94,6 +96,7 @@
     <li><a href="homepage.html#portfolio" class="mobile-link hover:text-primary">Portfolio</a></li>
     <li><a href="homepage.html#services" class="mobile-link hover:text-primary">Services</a></li>
     <li><a href="homepage.html#about" class="mobile-link hover:text-primary">About</a></li>
+    <li><a href="insights.html" class="mobile-link hover:text-primary">Insights</a></li>
     <li><a href="homepage.html#contact" class="mobile-link text-primary hover:text-white">Book Now</a></li>
   </ul>
 </div>
@@ -134,7 +137,7 @@
     <div class="space-y-10 text-gray-300 leading-relaxed">
 
       <div>
-        <h2 class="text-2xl font-semibold text-white mb-3">Capturing Moments That Can’t Be Repeated</h2>
+        <h2 class="text-2xl font-semibold text-primary mb-3">Capturing Moments That Can’t Be Repeated</h2>
         <p>
           Events move fast. Expressions change in seconds. Emotions peak unexpectedly.
           A professional photographer anticipates these moments — not reacts to them.
@@ -142,7 +145,7 @@
       </div>
 
       <div>
-        <h2 class="text-2xl font-semibold text-white mb-3">The Art of Staying Invisible</h2>
+        <h2 class="text-2xl font-semibold text-primary mb-3">The Art of Staying Invisible</h2>
         <p>
           Great event photography requires blending into the environment.
           The goal is to document naturally, without interrupting the experience.
@@ -158,7 +161,7 @@
       </div>
 
       <div>
-        <h2 class="text-2xl font-semibold text-white mb-3">Lighting Challenges & Creativity</h2>
+        <h2 class="text-2xl font-semibold text-primary mb-3">Lighting Challenges & Creativity</h2>
         <p>
           From dim venues to harsh stage lights, events rarely offer perfect lighting.
           Experience and technical control ensure every frame looks intentional.
@@ -166,7 +169,7 @@
       </div>
 
       <div>
-        <h2 class="text-2xl font-semibold text-white mb-3">Storytelling Through Images</h2>
+        <h2 class="text-2xl font-semibold text-primary mb-3">Storytelling Through Images</h2>
         <p>
           Event photography isn’t just documentation — it’s storytelling.
           The details, reactions, atmosphere, and key highlights combine into a visual narrative.
@@ -189,32 +192,55 @@
 
   </main>
 
-  <!-- CONTACT / BOOKING -->
-  <!-- Contact / Booking Section -->
-  <section id="contact" class="py-24 px-6 bg-gradient-to-r from-blue-950 to-slate-950 text-white">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6">Book Your Session</h2>
-      <p class="text-gray-400 mb-10">Fill out the form below or contact me directly via WhatsApp or phone.</p>
-      <form id="bookingForm" class="flex flex-col gap-4">
-        <input type="text" name="name" placeholder="Your Name" required class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-900 placeholder-blue-900 focus:outline-none focus:ring-2 focus:ring-primary" />
-        <input type="date" name="date" required class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary" />
-        <select name="service" required class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary">
+  <section id="contact" class="py-24 px-6 bg-gradient-to-r from-blue-950 to-slate-950" aria-label="Booking and contact">
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Section Header -->
+    <div class="mb-12 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white">
+        Book A <span class="text-primary">Session Today</span>
+      </h2>
+      <p class="mt-4 text-white/80">
+        Fill out the form and I’ll get back to you shortly.
+      </p>
+    </div>
+
+    <!-- Contact Card -->
+    <div class="bg-blue-900 border border-white/10 rounded-3xl p-8 md:p-10">
+      
+      <form id="bookingForm" method="POST" class="flex flex-col gap-4">
+
+        <input  type="text" name="name" placeholder="Your Name" required
+          class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-800 placeholder-blue-800 focus:outline-none focus:ring-2 focus:ring-primary" />
+
+        <input type="date" name="date" required
+          class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-800 focus:outline-none focus:ring-2 focus:ring-primary" />
+
+        <select name="service" required
+          class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-800 focus:outline-none focus:ring-2 focus:ring-primary">
           <option value="">Select a Service</option>
           <option value="wedding">Wedding</option>
           <option value="portrait">Portrait</option>
           <option value="event">Event</option>
           <option value="commercial">Commercial</option>
         </select>
-        <textarea name="message" rows="4" placeholder="Your Message" required class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-900 placeholder-blue-900 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
-        <button type="submit" class="bg-primary hover:bg-blue-600 text-white rounded-xl py-3 font-semibold transition">
+
+        <textarea name="message" rows="4" placeholder="Your Message" required
+          class="bg-white border border-white/20 rounded-xl px-4 py-3 text-blue-800 placeholder-blue-800 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+
+        <button type="submit"
+          class="bg-primary hover:bg-primaryHover text-white rounded-xl py-3 font-semibold transition">
           Send Message
         </button>
+
       </form>
     </div>
-  </section>
+
+  </div>
+</section>
 
   <!-- FOOTER -->
-   <footer class="bg-darkBg text-gray-400 px-6 mt-6 border-t border-gray-800 bg-gradient-to-r from-blue-950 to-slate-950" aria-label="Footer">
+   <footer class="bg-darkBg text-gray-400 px-6 border-t border-gray-800 bg-gradient-to-r from-blue-950 to-slate-950" aria-label="Footer">
 
     <!-- MAIN FOOTER CONTENT -->
     <div class="max-w-7xl mx-auto py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -225,17 +251,17 @@
 
         <p class="text-white mb-2">
           <span class="font-bold">Phone:</span>
-        <a href="tel:+255788296274" class="hover:underline text-sm"> +255 788 296 274</a>
+        <a href="tel:+255714611220" class="hover:underline text-sm"> +255 714 611 220</a>
         </p>
 
         <p class="text-white mb-2">
           <span class="font-bold">WhatsApp:</span>
-          <a href="https://wa.me/255788296274" class="hover:underline text-sm"> +255 788 296 274</a>
+          <a href="https://wa.me/255714611220" class="hover:underline text-sm"> +255 714 611 220</a>
         </p>
 
         <p class="text-white mb-2">
           <span class="font-bold">Email:</span>
-          <a href="mailto:photographer@example.com" class="hover:underline text-sm"> photographer@example.com</a>
+          <a href="mailto:iddigude@gmail.com" class="hover:underline text-sm"> iddigude@gmail.com</a>
         </p>
 
         <p class="text-white mb-2">
@@ -262,18 +288,12 @@
 
         <div class="flex gap-4">
           <!-- Instagram -->
-          <a href="https://instagram.com" target="_blank" class="hover:text-primary" aria-label="Instagram">
+          <a href="https://instagram.com/iddigude" target="_blank" class="hover:text-primary" aria-label="Instagram">
             <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
               <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 7.3A2.8 2.8 0 1 1 14.8 12 2.8 2.8 0 0 1 12 14.8zM17.3 6.2a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/>
             </svg>
           </a>
 
-          <!-- Email -->
-          <a href="mailto:info@synlotech.com" class="hover:text-primary" aria-label="Email">
-            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-            </svg>
-          </a>
 
           <!-- TikTok -->
           <a href="https://www.tiktok.com" target="_blank" class="hover:text-primary" aria-label="TikTok">
@@ -281,6 +301,14 @@
               <path d="M21 8.3c-1.7 0-3.3-.5-4.7-1.4v7.4a6.3 6.3 0 1 1-6.3-6.3c.3 0 .6 0 .9.1v3.2a3.1 3.1 0 1 0 2.2 3V2h3.1c.3 1.8 1.7 3.3 3.5 3.6v2.7z"/>
             </svg>
           </a>
+
+          <!-- WhatsApp -->
+<a href="https://wa.me/255714611220" class="hover:text-primary" aria-label="WhatsApp">
+  <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.97.58 3.8 1.58 5.34L2 22l4.9-1.66a9.86 9.86 0 0 0 5.14 1.45h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 17.98h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-2.91.99.95-2.84-.2-.29a8.06 8.06 0 0 1-1.25-4.32c0-4.46 3.63-8.09 8.1-8.09 2.16 0 4.19.84 5.71 2.36a8.04 8.04 0 0 1 2.37 5.73c0 4.46-3.63 8.09-8.1 8.09zm4.44-6.07c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.18-1.41-1.32-1.65-.14-.24-.02-.37.1-.49.1-.1.24-.26.36-.39.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.65.58.25 1.03.4 1.38.52.58.18 1.1.16 1.52.1.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/>
+  </svg>
+</a>
+
         </div>
       </div>
 
@@ -341,6 +369,36 @@ function resetMenuOnResize() {
 
 // Listen to window resize
 window.addEventListener("resize", resetMenuOnResize);
+
+const form = document.getElementById("bookingForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = form.name.value.trim();
+    const date = form.date.value;
+    const service = form.service.value;
+    const message = form.message.value.trim();
+
+    const text = 
+      `Hi Chacha,%0A%0A` +
+      `Name: ${encodeURIComponent(name)}%0A` +
+      `Date: ${encodeURIComponent(date)}%0A` +
+      `Service: ${encodeURIComponent(service)}%0A` +
+      `Message: ${encodeURIComponent(message)}`;
+
+    const phone = "255788296274"; // no + or spaces
+    const url = `https://wa.me/${phone}?text=${text}`;
+
+    window.open(url, "_blank");
+  });
+
+  document.querySelectorAll(".faq-toggle").forEach(toggle => {
+  toggle.addEventListener("click", () => {
+    const arrow = toggle.querySelector(".faq-arrow");
+    arrow.classList.toggle("rotate-180");
+  });
+});
   </script>
 </body>
 </html>
