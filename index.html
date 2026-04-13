@@ -1,46 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link
-  href="script.js">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loading...</title>
-  <link rel="icon" type="image/png" href="thumbnails/ChatGPT Image Feb 21, 2026, 01_43_16 AM.png" />
-
+  <title>Lens Calibration | Iddi Gude</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-black text-white min-h-screen overflow-hidden">
+<body class="bg-black text-white min-h-screen overflow-hidden font-sans selection:bg-red-500/30">
 
- <!-- Background Image -->
-<img
-  src="thumbnails/pexels-alex-andrews-271121-821749.jpg"
-  alt="Background"
-  class="absolute inset-0 w-full h-full object-cover"
-/>
-
-<!-- Dark Overlay -->
-<div class="absolute inset-0 bg-black/70"></div>
-
-  <!-- Loader Content -->
-  <div class="relative z-10 flex items-center justify-center min-h-screen">
-    <div class="flex flex-col items-center gap-6">
-      <div class="w-16 h-16 border-4 border-white/30 border-t-blue-500 rounded-full animate-spin mt-60"></div>
-      <p class="text-sm tracking-wide text-gray-300 ">Loading experience…</p>
-    </div>
+  <!-- CAMERA FEED: The Focus-Pull -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="thumbnails/pexels-alex-andrews-271121-821749.jpg"
+      alt="Portfolio Preview"
+      id="bg-image"
+      class="w-full h-full object-cover transition-all duration-[4000ms] blur-2xl grayscale opacity-30 scale-110"
+    />
+    <!-- Grain Overlay for Film Aesthetic -->
+    <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: url('https://grainy-gradients.vercel.app');"></div>
   </div>
 
-<script>
-    // NEXT PAGE HERE
-    const nextPage = "homepage.html";
-    const delay = 5000; // ms
+  <!-- VIEWFINDER HUD UI -->
+  <main class="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 font-mono">
+    
+    <!-- TOP LEFT: Recording Status -->
+    <div class="absolute top-10 left-10 flex items-center gap-3">
+      <div class="w-3 h-3 rounded-full bg-red-600 animate-[pulse_1s_infinite]"></div>
+      <span class="text-[10px] uppercase tracking-[0.3em] font-bold">REC <span id="timer">00:00:00:00</span></span>
+    </div>
 
-    // Redirect after delay
-    setTimeout(() => {
-      window.location.replace(nextPage);
-    }, delay);
+    <!-- TOP RIGHT: Camera Specs -->
+    <div class="absolute top-10 right-10 text-right space-y-1 opacity-60">
+        <p class="text-[9px] uppercase tracking-widest">4K RAW • 60FPS</p>
+        <p class="text-[9px] uppercase tracking-widest text-blue-400">ISO 800 • f/2.8</p>
+    </div>
+
+    <!-- CENTER: Focus Bracket -->
+    <div class="relative w-full max-w-lg flex flex-col items-center">
+      
+      <!-- Visual Focus Brackets -->
+      <div class="absolute -top-20 -left-10 w-8 h-8 border-t-2 border-l-2 border-white/20"></div>
+      <div class="absolute -top-20 -right-10 w-8 h-8 border-t-2 border-r-2 border-white/20"></div>
+      <div class="absolute -bottom-20 -left-10 w-8 h-8 border-b-2 border-l-2 border-white/20"></div>
+      <div class="absolute -bottom-20 -right-10 w-8 h-8 border-b-2 border-r-2 border-white/20"></div>
+
+      <!-- Shutter Animation -->
+      <div class="mb-8">
+        <h1 class="text-[10px] font-black uppercase tracking-[1em] text-white/40 mb-2">Developing Visuals</h1>
+        <div class="flex items-baseline gap-2">
+            <span id="percent" class="text-6xl font-black tracking-tighter italic">00</span>
+            <span class="text-xl font-light text-white/30">%</span>
+        </div>
+      </div>
+
+      <!-- Exposure Meter Style Progress -->
+      <div class="w-64 h-[2px] bg-white/10 relative">
+        <div id="progress-bar" class="absolute top-0 left-0 h-full bg-white transition-all duration-300 ease-out" style="width: 0%"></div>
+        <!-- Meter notches -->
+        <div class="absolute -bottom-4 left-0 w-full flex justify-between text-[8px] text-white/20">
+            <span>-2</span><span>-1</span><span class="text-white/60">0</span><span>+1</span><span>+2</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM HUD: Metadata -->
+    <div class="absolute bottom-10 left-10 opacity-30 text-[9px] tracking-[0.2em] uppercase">
+        <p>Shutter: 1/125</p>
+        <p>WB: 5600K</p>
+    </div>
+
+    <div class="absolute bottom-10 right-10 text-right opacity-30 text-[9px] tracking-[0.2em] uppercase leading-relaxed">
+      <p>Dar es Salaam // TZ</p>
+      <p id="battery">BATTERY: 98%</p>
+    </div>
+
+  </main>
+
+  <script>
+    const progressBar = document.getElementById('progress-bar');
+    const percentText = document.getElementById('percent');
+    const bgImage = document.getElementById('bg-image');
+    const timer = document.getElementById('timer');
+    const nextPage = "homepage.html";
+    
+    let progress = 0;
+
+    // 1. Timecode Generator (The 00:00:00:00 effect)
+    setInterval(() => {
+        let now = new Date();
+        let frames = Math.floor(Math.random() * 60).toString().padStart(2, '0');
+        timer.innerText = `00:00:${now.getSeconds().toString().padStart(2, '0')}:${frames}`;
+    }, 100);
+
+    // 2. Realistic Focus Pull Progress
+    const interval = setInterval(() => {
+      const increment = progress < 80 ? Math.random() * 12 : Math.random() * 2;
+      progress += increment;
+
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(interval);
+        
+        // Final "Snap into Focus"
+        bgImage.style.filter = "blur(0px) grayscale(0%)";
+        bgImage.style.transform = "scale(1)";
+        bgImage.style.opacity = "1";
+
+        setTimeout(() => {
+          window.location.replace(nextPage);
+        }, 1000);
+      }
+
+      progressBar.style.width = `${progress}%`;
+      percentText.innerText = Math.floor(progress).toString().padStart(2, '0');
+    }, 200);
   </script>
 
 </body>
